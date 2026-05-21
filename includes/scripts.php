@@ -16,9 +16,13 @@
 <script>
   $(function () {
     // Datatable
-    $('#example1').DataTable()
+    if($('#example1').length){
+      $('#example1').DataTable()
+    }
     //CK Editor
-    CKEDITOR.replace('editor1')
+    if($('#editor1').length){
+      CKEDITOR.replace('editor1')
+    }
   });
 </script>
 <!--Magnify -->

@@ -1,0 +1,23 @@
+# Local configuration and secrets
+includes/config.php
+.env
+.env.*
+
+# Runtime uploads and generated files
+images/uploads/
+*.log
+*.tmp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dependency caches
+node_modules/
+vendor/.cache/
+
+# Composer artifacts can be regenerated if composer.json is added later.
+# Keep the existing vendor/ folder tracked for this legacy project because
+# it currently contains the PHPMailer autoloader used by password reset.

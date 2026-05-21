@@ -52,6 +52,19 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="label label-success cart_count">0</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <ul class="menu" id="cart_menu">
+                  <li class="footer"><a href="#">Your cart is empty</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown messages-menu">
            
           <?php
             if(isset($_SESSION['user'])){
@@ -74,7 +87,7 @@
                     </li>
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
                         <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
