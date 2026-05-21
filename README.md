@@ -2,6 +2,10 @@
 
 A legacy PHP/MySQL ecommerce demo with product browsing, user registration/login, cart handling, admin product/category/user management, and password reset support.
 
+## Credits
+
+Developed and maintained by **Jaiditya Chauhan**.
+
 ## Requirements
 
 - PHP 7.4+ with PDO MySQL enabled
