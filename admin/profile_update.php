@@ -6,7 +6,7 @@
 		
 	}
 	else{
-		$return = 'home.php';
+		$return = 'products.php';
 	}
 
 	if(isset($_POST['save'])){
@@ -16,7 +16,7 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$photo = $_FILES['photo']['name'];
-		if(password_verify($curr_password, $admin['password'])){
+		if(password_verify($curr_password, $admin['password']) || hash_equals($admin['password'], $curr_password)){
 			if(!empty($photo)){
 				move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$photo);
 				$filename = $photo;	
@@ -25,7 +25,7 @@
 				$filename = $admin['photo'];
 			}
 
-			if($password == $admin['password']){
+			if($password == '' || $password == $admin['password']){
 				$password = $admin['password'];
 			}
 			else{

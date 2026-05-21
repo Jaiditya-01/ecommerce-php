@@ -1,6 +1,12 @@
 <?php
 	include 'includes/session.php';
 
+	if(!isset($_SESSION['user'])){
+		$_SESSION['error'] = 'Please sign in before checkout.';
+		header('location: login.php');
+		exit();
+	}
+
 	if(isset($_GET['pay'])){
 		$payid = $_GET['pay'];
 		$date = date('Y-m-d');

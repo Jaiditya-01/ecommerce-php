@@ -15,7 +15,7 @@
 		$stmt->execute(['id'=>$id]);
 		$row = $stmt->fetch();
 
-		if($password == $row['password']){
+		if($password == '' || $password == $row['password']){
 			$password = $row['password'];
 		}
 		else{

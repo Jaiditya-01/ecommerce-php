@@ -2,6 +2,11 @@
 <?php
 	$conn = $pdo->open();
 
+	if(!isset($_GET['product'])){
+		header('location: index.php');
+		exit();
+	}
+
 	$slug = $_GET['product'];
 
 	try{
@@ -9,6 +14,10 @@
 	    $stmt = $conn->prepare("SELECT *, products.name AS prodname, category.name AS catname, products.id AS prodid FROM products LEFT JOIN category ON category.id=products.category_id WHERE slug = :slug");
 	    $stmt->execute(['slug' => $slug]);
 	    $product = $stmt->fetch();
+	    if(!$product){
+	    	header('location: index.php');
+	    	exit();
+	    }
 		
 	}
 	catch(PDOException $e){
@@ -84,7 +93,7 @@
 		            	</div>
 		            </div>
 		            <br>
-				    <div class="fb-comments" data-href="http://localhost/ecommerce/product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
+				    <div class="fb-comments" data-href="<?php echo rtrim(APP_URL, '/'); ?>/product.php?product=<?php echo htmlspecialchars($slug); ?>" data-numposts="10" width="100%"></div> 
 	        	</div>
 	        </div>
 	      </section>
