@@ -64,8 +64,6 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown messages-menu">
-           
           <?php
             if(isset($_SESSION['user'])){
               $image = (!empty($user['photo'])) ? 'images/'.$user['photo'] : 'images/profile.jpg';

@@ -20,6 +20,27 @@ if (!defined('DB_PASS')) {
 if (!defined('APP_URL')) {
 	define('APP_URL', getenv('APP_URL') ?: 'http://localhost/ecommerce');
 }
+if (!defined('SMTP_HOST')) {
+	define('SMTP_HOST', getenv('SMTP_HOST') ?: '');
+}
+if (!defined('SMTP_PORT')) {
+	define('SMTP_PORT', getenv('SMTP_PORT') ?: 587);
+}
+if (!defined('SMTP_USER')) {
+	define('SMTP_USER', getenv('SMTP_USER') ?: '');
+}
+if (!defined('SMTP_PASS')) {
+	define('SMTP_PASS', getenv('SMTP_PASS') ?: '');
+}
+if (!defined('SMTP_SECURE')) {
+	define('SMTP_SECURE', getenv('SMTP_SECURE') ?: 'tls');
+}
+if (!defined('SMTP_FROM_EMAIL')) {
+	define('SMTP_FROM_EMAIL', getenv('SMTP_FROM_EMAIL') ?: 'no-reply@example.com');
+}
+if (!defined('SMTP_FROM_NAME')) {
+	define('SMTP_FROM_NAME', getenv('SMTP_FROM_NAME') ?: 'Ecommerce Store');
+}
 
 class Database{
 	private $server;
