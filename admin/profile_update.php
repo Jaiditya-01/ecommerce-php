@@ -23,6 +23,18 @@
 		$photo = $_FILES['photo']['name'];
 		if(password_verify($curr_password, $admin['password']) || hash_equals($admin['password'], $curr_password)){
 			if(!empty($photo)){
+				// Image validation
+				$allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+				$finfo = finfo_open(FILEINFO_MIME_TYPE);
+				$mime = finfo_file($finfo, $_FILES['photo']['tmp_name']);
+				finfo_close($finfo);
+
+				if(!in_array($mime, $allowed_types) || !getimagesize($_FILES['photo']['tmp_name'])){
+					$_SESSION['error'] = 'Invalid image format. Only JPG, PNG, and GIF are allowed.';
+					header('location: '.$return);
+					exit();
+				}
+
 				move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$photo);
 				$filename = $photo;	
 			}
