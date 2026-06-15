@@ -33,7 +33,7 @@
 								foreach($stmt as $row){
 									$subtotal = $row['price'] * $row['quantity'];
 									$total += $subtotal;
-									echo "<tr><td>".$row['name']."</td><td>&#8377; ".number_format($row['price'], 2)."</td><td>".$row['quantity']."</td><td>&#8377; ".number_format($subtotal, 2)."</td></tr>";
+									echo "<tr><td>".htmlspecialchars($row['name'])."</td><td>&#8377; ".number_format($row['price'], 2)."</td><td>".$row['quantity']."</td><td>&#8377; ".number_format($subtotal, 2)."</td></tr>";
 								}
 								$pdo->close();
 							?>

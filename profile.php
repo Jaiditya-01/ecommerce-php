@@ -51,14 +51,14 @@
 	        							<h4>Member Since:</h4>
 	        						</div>
 	        						<div class="col-sm-9">
-	        							<h4><?php echo $user['firstname'].' '.$user['lastname']; ?>
+	        							<h4><?php echo htmlspecialchars($user['firstname'].' '.$user['lastname']); ?>
 	        								<span class="pull-right">
 	        									<a href="#edit" class="btn btn-success btn-flat btn-sm" data-toggle="modal"><i class="fa fa-edit"></i> Edit</a>
 	        								</span>
 	        							</h4>
-	        							<h4><?php echo $user['email']; ?></h4>
-	        							<h4><?php echo (!empty($user['contact_info'])) ? $user['contact_info'] : 'N/a'; ?></h4>
-	        							<h4><?php echo (!empty($user['address'])) ? $user['address'] : 'N/a'; ?></h4>
+	        							<h4><?php echo htmlspecialchars($user['email']); ?></h4>
+	        							<h4><?php echo (!empty($user['contact_info'])) ? htmlspecialchars($user['contact_info']) : 'N/a'; ?></h4>
+	        							<h4><?php echo (!empty($user['address'])) ? htmlspecialchars($user['address']) : 'N/a'; ?></h4>
 	        							<h4><?php echo date('M d, Y', strtotime($user['created_on'])); ?></h4>
 	        						</div>
 	        					</div>

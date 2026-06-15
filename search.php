@@ -20,10 +20,10 @@
 	       			$stmt->execute(['keyword' => '%'.$_POST['keyword'].'%']);
 	       			$row = $stmt->fetch();
 	       			if($row['numrows'] < 1){
-	       				echo '<h1 class="page-header">No results found for <i>'.$_POST['keyword'].'</i></h1>';
+	       				echo '<h1 class="page-header">No results found for <i>'.htmlspecialchars($_POST['keyword']).'</i></h1>';
 	       			}
 	       			else{
-	       				echo '<h1 class="page-header">Search results for <i>'.$_POST['keyword'].'</i></h1>';
+	       				echo '<h1 class="page-header">Search results for <i>'.htmlspecialchars($_POST['keyword']).'</i></h1>';
 		       			try{
 		       			 	$inc = 4;	
 						    $stmt = $conn->prepare("SELECT * FROM products WHERE name LIKE :keyword");
@@ -38,8 +38,8 @@
 	       							<div class='col-sm-3'>
 	       								<div class='box box-solid'>
 		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
-		       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
+		       									<img src='".htmlspecialchars($image)."' width='100%' height='230px' class='thumbnail'>
+		       									<h5><a href='product.php?product=".htmlspecialchars($row['slug'])."'>".htmlspecialchars($row['name'])."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>
 		       									<b>&#8377; ".number_format($row['price'], 2)."</b>

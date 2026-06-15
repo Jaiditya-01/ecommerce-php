@@ -30,7 +30,7 @@
 	      <section class="content">
 	        <div class="row">
 	        	<div class="col-sm-12">
-		            <h1 class="page-header"><?php echo $cat['name']; ?></h1>
+		            <h1 class="page-header"><?php echo htmlspecialchars($cat['name']); ?></h1>
 					<?php
 		       			
 		       			$conn = $pdo->open();
@@ -46,8 +46,8 @@
 	       							<div class='col-sm-3'>
 	       								<div class='box box-solid'>
 		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
-		       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
+		       									<img src='".htmlspecialchars($image)."' width='100%' height='230px' class='thumbnail'>
+		       									<h5><a href='product.php?product=".htmlspecialchars($row['slug'])."'>".htmlspecialchars($row['name'])."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>
 		       									<b>&#8377; ".number_format($row['price'], 2)."</b>

@@ -98,11 +98,11 @@
                       $stmt = $conn->prepare("SELECT * FROM products $where");
                       $stmt->execute($params);
                       foreach($stmt as $row){
-                        $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/noimage.jpg';
+                        $image = (!empty($row['photo'])) ? '../images/'.htmlspecialchars($row['photo']) : '../images/noimage.jpg';
                         $counter = ($row['date_view'] == $now) ? $row['counter'] : 0;
                         echo "
                           <tr>
-                            <td>".$row['name']."</td>
+                            <td>".htmlspecialchars($row['name'])."</td>
                             <td>
                               <img src='".$image."' height='30px' width='30px'>
                               <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>

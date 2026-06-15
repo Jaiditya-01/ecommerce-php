@@ -62,15 +62,15 @@
                       $stmt = $conn->prepare("SELECT * FROM users WHERE type=:type");
                       $stmt->execute(['type'=>0]);
                       foreach($stmt as $row){
-                        $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
+                        $image = (!empty($row['photo'])) ? '../images/'.htmlspecialchars($row['photo']) : '../images/profile.jpg';
                         echo "
                           <tr>
                             <td>
                               <img src='".$image."' height='30px' width='30px'>
                               
                             </td>
-                            <td>".$row['email']."</td>
-                            <td>".$row['firstname'].' '.$row['lastname']."</td>
+                            <td>".htmlspecialchars($row['email'])."</td>
+                            <td>".htmlspecialchars($row['firstname'].' '.$row['lastname'])."</td>
                             
                             <td>".date('M d, Y', strtotime($row['created_on']))."</td>
                             <td>

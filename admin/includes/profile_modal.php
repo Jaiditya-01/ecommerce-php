@@ -10,33 +10,33 @@
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="profile_update.php?return=<?php echo basename($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
           		  <div class="form-group">
-                  	<label for="email" class="col-sm-3 control-label">Email</label>
+          		      <label for="email" class="col-sm-3 control-label">Email</label>
 
-                  	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="email" name="email" value="<?php echo $admin['email']; ?>">
-                  	</div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
+          		      <div class="col-sm-9">
+          		        <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($admin['email']); ?>">
+          		      </div>
+          		  </div>
+          		  <div class="form-group">
+          		      <label for="password" class="col-sm-3 control-label">Password</label>
 
-                    <div class="col-sm-9"> 
-                      <input type="password" class="form-control" id="password" name="password" placeholder="leave blank to keep current password">
-                    </div>
-                </div>
-                <div class="form-group">
-                  	<label for="firstname" class="col-sm-3 control-label">Firstname</label>
+          		      <div class="col-sm-9">
+          		        <input type="password" class="form-control" id="password" name="password" placeholder="input password to edit" required>
+          		      </div>
+          		  </div>
+          		  <div class="form-group">
+          		      <label for="firstname" class="col-sm-3 control-label">Firstname</label>
 
-                  	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $admin['firstname']; ?>">
-                  	</div>
-                </div>
-                <div class="form-group">
-                  	<label for="lastname" class="col-sm-3 control-label">Lastname</label>
+          		      <div class="col-sm-9">
+          		        <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo htmlspecialchars($admin['firstname']); ?>">
+          		      </div>
+          		  </div>
+          		  <div class="form-group">
+          		      <label for="lastname" class="col-sm-3 control-label">Lastname</label>
 
-                  	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $admin['lastname']; ?>">
-                  	</div>
-                </div>
+          		      <div class="col-sm-9">
+          		        <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo htmlspecialchars($admin['lastname']); ?>">
+          		      </div>
+          		  </div>
                 <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo:</label>
 

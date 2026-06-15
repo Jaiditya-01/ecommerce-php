@@ -18,12 +18,12 @@
 		foreach($stmt as $row){
 			$output['count'] += $row['quantity'];
 			$total += $row['price'] * $row['quantity'];
-			$photo = !empty($row['photo']) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
+			$photo = !empty($row['photo']) ? 'images/'.htmlspecialchars($row['photo']) : 'images/noimage.jpg';
 			$output['list'] .= "
 				<li>
 					<a href='#'>
 						<div class='pull-left'><img src='".$photo."' class='img-circle' alt='Product Image'></div>
-						<h4>".$row['name']."</h4>
+						<h4>".htmlspecialchars($row['name'])."</h4>
 						<p>".$row['quantity']." x &#8377; ".number_format($row['price'], 2)."</p>
 					</a>
 				</li>
