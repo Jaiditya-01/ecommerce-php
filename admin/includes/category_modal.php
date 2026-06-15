@@ -36,7 +36,8 @@
               <h4 class="modal-title"><b>Edit Category</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="category_edit.php">
+              <form class="form-horizontal" method="POST" action="category_delete.php">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <input type="hidden" class="catid" name="id">
                 <div class="form-group">
                     <label for="edit_name" class="col-sm-3 control-label">Name</label>
@@ -66,6 +67,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="category_delete.php">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <input type="hidden" class="catid" name="id">
                 <div class="text-center">
                     <p>DELETE CATEGORY</p>
@@ -80,3 +82,11 @@
         </div>
     </div>
 </div>
+
+> Delete</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+

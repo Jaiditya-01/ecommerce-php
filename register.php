@@ -5,6 +5,12 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['signup'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: signup.php');
+			exit();
+		}
+
 		$firstname = trim($_POST['firstname']);
 		$lastname = trim($_POST['lastname']);
 		$email = trim($_POST['email']);

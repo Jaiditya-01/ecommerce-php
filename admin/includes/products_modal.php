@@ -28,6 +28,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_add.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <div class="form-group">
                   <label for="name" class="col-sm-1 control-label">Name</label>
 
@@ -84,6 +85,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="products_photo.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <input type="hidden" class="prodid" name="id">
                 <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>

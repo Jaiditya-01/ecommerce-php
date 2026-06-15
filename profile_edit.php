@@ -7,6 +7,11 @@
 	}
 
 	if(isset($_POST['edit'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: profile.php');
+			exit();
+		}
 		$curr_password = $_POST['curr_password'];
 		$email = trim($_POST['email']);
 		$password = $_POST['password'];

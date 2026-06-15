@@ -10,6 +10,13 @@
 		exit();
 	}
 
+	if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+		$output['error'] = true;
+		$output['message'] = 'CSRF token validation failed.';
+		echo json_encode($output);
+		exit();
+	}
+
 	$productId = isset($_POST['id']) ? (int) $_POST['id'] : 0;
 	$quantity = isset($_POST['quantity']) ? max(1, (int) $_POST['quantity']) : 1;
 

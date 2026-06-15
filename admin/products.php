@@ -56,6 +56,7 @@
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a>
               <div class="pull-right">
                 <form class="form-inline">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <div class="form-group">
                     <label>Category: </label>
                     <select class="form-control input-sm" id="select_category">

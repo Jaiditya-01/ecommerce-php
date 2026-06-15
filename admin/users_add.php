@@ -2,6 +2,11 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['add'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: users.php');
+			exit();
+		}
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$email = $_POST['email'];

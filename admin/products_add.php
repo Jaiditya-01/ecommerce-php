@@ -3,6 +3,11 @@
 	include 'includes/slugify.php';
 
 	if(isset($_POST['add'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: products.php');
+			exit();
+		}
 		$name = $_POST['name'];
 		$slug = slugify($name);
 		$category = $_POST['category'];

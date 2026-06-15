@@ -10,6 +10,11 @@
 	}
 
 	if(isset($_POST['save'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: '.$return);
+			exit();
+		}
 		$curr_password = $_POST['curr_password'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];

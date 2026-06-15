@@ -45,6 +45,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="profile_edit.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <div class="form-group">
                     <label for="firstname" class="col-sm-3 control-label">Firstname</label>
 

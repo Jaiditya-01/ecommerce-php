@@ -33,6 +33,7 @@
     	<p class="login-box-msg">Sign in to start your session</p>
 
     	<form action="verify.php" method="POST">
+    		<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
       		<div class="form-group has-feedback">
         		<input type="email" class="form-control" name="email" placeholder="Email" required>
         		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>

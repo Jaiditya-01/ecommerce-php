@@ -3,6 +3,11 @@
 	$conn = $pdo->open();
 
 	if(isset($_POST['login'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: login.php');
+			exit();
+		}
 		
 		$email = $_POST['email'];
 		$password = $_POST['password'];

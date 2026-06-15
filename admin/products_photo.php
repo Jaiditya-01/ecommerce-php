@@ -2,6 +2,11 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['upload'])){
+		if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+			$_SESSION['error'] = 'CSRF token validation failed.';
+			header('location: products.php');
+			exit();
+		}
 		$id = $_POST['id'];
 		$filename = $_FILES['photo']['name'];
 

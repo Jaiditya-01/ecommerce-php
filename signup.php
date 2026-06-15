@@ -38,6 +38,7 @@
     	<p class="login-box-msg">Register a new membership</p>
 
     	<form action="register.php" method="POST">
+    		<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" name="firstname" placeholder="Firstname" value="<?php echo (isset($_SESSION['firstname'])) ? htmlspecialchars($_SESSION['firstname']) : '' ?>" required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>

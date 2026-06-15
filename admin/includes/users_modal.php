@@ -9,6 +9,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_add.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
 
@@ -199,6 +200,7 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_activate.php">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <input type="hidden" class="userid" name="id">
                 <div class="text-center">
                     <p>ACTIVATE USER</p>

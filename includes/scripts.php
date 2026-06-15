@@ -48,6 +48,7 @@ $(function(){
   $('#productForm').submit(function(e){
   	e.preventDefault();
   	var product = $(this).serialize();
+    product += '&csrf_token=<?php echo $_SESSION["csrf_token"]; ?>';
   	$.ajax({
   		type: 'POST',
   		url: 'cart_add.php',
