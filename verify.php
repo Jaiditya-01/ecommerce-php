@@ -19,6 +19,7 @@
 			$row = $stmt->fetch();
 			if($row['numrows'] > 0){
 					if(password_verify($password, $row['password']) || hash_equals($row['password'], $password)){
+						session_regenerate_id(true);
 						if($row['type']){
 							$_SESSION['admin'] = $row['id'];
 							header("location: admin/products.php");
