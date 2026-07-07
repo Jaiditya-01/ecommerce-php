@@ -1,7 +1,10 @@
+/*include all the required pages to integrate*/
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue layout-top-nav">
 <?php include 'includes/navbar.php'; ?>
+
+/*map for about us page*/
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29364.7703891992!2d70.08502554999995!3d23.0752575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b850a5b29b5d%3A0xb042a965b93d426d!2sAdipur%2C%20Gandhidham%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1686752727634!5m2!1sen!2sin" width="85%" style="margin-left:100px;" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <div class="about-section">
   <h1>About Us</h1><br><br>
