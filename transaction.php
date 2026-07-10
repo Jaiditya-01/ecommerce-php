@@ -1,5 +1,5 @@
 <?php
-	include 'includes/session.php';
+	include 'includes/session.php'; // session checking
 
 	$output = array('date'=>'', 'transaction'=>'', 'list'=>'', 'total'=>'0.00');
 
@@ -33,7 +33,7 @@
 		}
 	}
 	catch(PDOException $e){
-		$output['list'] = "<tr class='prepend_items'><td colspan='4'>Unable to load transaction.</td></tr>";
+		$output['list'] = "<tr class='prepend_items'><td colspan='4'>Unable to load transaction.</td></tr>"; // fetch failed
 	}
 
 	$pdo->close();
