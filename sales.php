@@ -1,5 +1,5 @@
 <?php
-	include 'includes/session.php';
+	include 'includes/session.php'; // session checking
 
 	if(!isset($_SESSION['user'])){
 		$_SESSION['error'] = 'Please sign in before checkout.';
