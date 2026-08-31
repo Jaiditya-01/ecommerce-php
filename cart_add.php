@@ -1,5 +1,5 @@
 <?php
-	include 'includes/session.php'; /* include the session for authentication */
+	include 'includes/session.php'; 
 
 	$output = array('error'=>false, 'message'=>'');
 
